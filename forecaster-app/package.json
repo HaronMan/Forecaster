@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@picocss/pico": "^1.5.13",
     "core-js": "^3.8.3",
     "forecaster-app": "file:",
     "vue": "^3.2.13"
