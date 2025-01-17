@@ -1,0 +1,9 @@
+{
+    "extends": [
+      "plugin:vue/vue3-essential", // ou une autre configuration, selon votre besoin
+      "eslint:recommended"
+    ],
+    "rules": {
+      "vue/multi-word-component-names": "off" // Désactive la règle de nommage des composants
+    }
+}
