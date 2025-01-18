@@ -1,19 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo_dark.png">
   <Sidebar/>
+  <section class="main">
+    <img alt="Vue logo" src="./assets/logo_dark.png">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat soluta iure debitis quibusdam fugit quas blanditiis magnam aperiam vitae animi, eos ullam dolorum distinctio minima pariatur molestiae doloremque perspiciatis ducimus.</p>
+  </section>
 </template>
 
 <script setup>
 import Sidebar from './components/Sidebar.vue';
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.main {
+  margin: 1%;
+  margin-left: 15%;
 }
 </style>

@@ -35,12 +35,21 @@ const handleOnglet = (id) => {
 <style scoped>
 .sidebar {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 0;
     left: 0;
-    width: 15%;
+    width: 14%;
     height: 100%;
     box-shadow: 5px 0 10px rgb(128, 128, 128);
     background-color: rgb(22, 22, 22);
+}
+
+.onglets ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .default {
