@@ -1,13 +1,20 @@
 <template>
-  <Sidebar/>
+  <Sidebar @send_onglet="handleOnglet"/>
   <section class="main">
     <img alt="Vue logo" src="./assets/logo_dark.png">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat soluta iure debitis quibusdam fugit quas blanditiis magnam aperiam vitae animi, eos ullam dolorum distinctio minima pariatur molestiae doloremque perspiciatis ducimus.</p>
+    <p>{{ onglet }}</p>
   </section>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import Sidebar from './components/Sidebar.vue';
+
+const onglet = ref('overview')
+
+const handleOnglet = (tab)  => { 
+  onglet.value = tab 
+}
 </script>
 
 <style scoped>

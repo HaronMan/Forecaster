@@ -15,7 +15,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
+
+const emit = defineEmits(['send_onglet'])
 
 const lst_onglets = ref([
     {id: 'overview', title: 'Vue d\'ensemble'},
@@ -28,6 +30,7 @@ const onglet_courant = ref(lst_onglets.value[0].id)
 const handleOnglet = (id) => {
     if( id != onglet_courant.value) {
         onglet_courant.value = id
+        emit('send_onglet', id)
     }
 }
 </script>
