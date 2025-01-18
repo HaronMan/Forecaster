@@ -15,7 +15,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
+
+const emit = defineEmits(['send_onglet'])
 
 const lst_onglets = ref([
     {id: 'overview', title: 'Vue d\'ensemble'},
@@ -28,6 +30,7 @@ const onglet_courant = ref(lst_onglets.value[0].id)
 const handleOnglet = (id) => {
     if( id != onglet_courant.value) {
         onglet_courant.value = id
+        emit('send_onglet', id)
     }
 }
 </script>
@@ -35,12 +38,21 @@ const handleOnglet = (id) => {
 <style scoped>
 .sidebar {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 0;
     left: 0;
-    width: 15%;
+    width: 14%;
     height: 100%;
     box-shadow: 5px 0 10px rgb(128, 128, 128);
     background-color: rgb(22, 22, 22);
+}
+
+.onglets ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .default {
