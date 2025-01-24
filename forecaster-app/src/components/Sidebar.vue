@@ -4,8 +4,13 @@
         <nav class="onglets">
             <ul>
                 <li v-for="onglet in lst_onglets"
-                    :key="onglet.id">
-                    <span @click="handleOnglet(onglet.id)" :class="{selected : onglet_courant == onglet.id, default: onglet_courant != onglet.id}">
+                    :key="onglet.id"
+                    @click="handleOnglet(onglet.id)">
+                    <img :class="{
+                        img_selected : onglet_courant == 
+                        onglet.id, img_default: onglet_courant != onglet.id
+                    }" :src="getImgOnglet(onglet.id)" />
+                    <span :class="{selected : onglet_courant == onglet.id, default: onglet_courant != onglet.id}">
                         {{ onglet.title }}
                     </span>
                 </li>
@@ -15,7 +20,7 @@
 </template>
 
 <script setup>
-import { ref, defineEmits } from 'vue';
+import { ref, defineEmits, require } from 'vue';
 
 const emit = defineEmits(['send_onglet'])
 
@@ -32,6 +37,10 @@ const handleOnglet = (id) => {
         onglet_courant.value = id
         emit('send_onglet', id)
     }
+}
+
+const getImgOnglet = (id) => {
+    return require(`@/assets/${id}.png`)
 }
 </script>
 
@@ -50,9 +59,43 @@ const handleOnglet = (id) => {
 }
 
 .onglets ul {
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.onglets ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.onglets ul li:hover {
+    cursor: pointer;
+}
+
+.onglets ul li:hover .default {
+    color: rgb(159, 97, 218);
+    text-shadow: 0 0 2px rgb(159, 97, 218);
+}
+
+.onglets ul li:hover .img_default {
+    filter: sepia(1) saturate(200%) hue-rotate(250deg) brightness(0.9);
+}
+
+.img_default, .img_selected {
+    width: 15%;
+    transition: all .4s ease
+}
+
+.img_default {
+    filter: grayscale(90%);
+}
+
+.selected {
+    color: #007FFF;
 }
 
 .default {
@@ -62,10 +105,5 @@ const handleOnglet = (id) => {
 .default:hover {
     color: rgb(159, 97, 218);
     text-shadow: 0 0 2px rgb(159, 97, 218);
-    cursor: pointer;
-}
-
-.selected {
-    color: #007FFF;
 }
 </style>
