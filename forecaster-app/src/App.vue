@@ -3,6 +3,8 @@
   <section class="main">
     <img alt="Vue logo" src="./assets/logo_dark.png">
     <p>{{ onglet }}</p>
+    <Transaction v-if="onglet == 'transaction'"></Transaction>
+    <p v-else>{{ onglet }}</p>
   </section>
 </template>
 
