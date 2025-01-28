@@ -1,8 +1,6 @@
 <template>
   <Sidebar @send_onglet="handleOnglet"/>
   <section class="main">
-    <img alt="Vue logo" src="./assets/logo_dark.png">
-    <p>{{ onglet }}</p>
     <Transaction v-if="onglet == 'transaction'"></Transaction>
     <p v-else>{{ onglet }}</p>
   </section>
@@ -11,6 +9,7 @@
 <script setup>
 import { ref } from 'vue'
 import Sidebar from './components/Sidebar.vue';
+import Transaction from './components/transaction/Transaction.vue';
 
 const onglet = ref('overview')
 
